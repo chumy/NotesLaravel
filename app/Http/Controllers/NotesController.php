@@ -34,6 +34,13 @@ class NotesController extends Controller
     }
     public function show($note)
     {
-        dd($note);
+        //dd($note);
+        //$note = Note::find($note);
+        $note = Note::FindorFail($note);
+        //return $note->note;
+        //return view('notes/details', compact('note'));
+        //return view('notes/details', ['note'=> $note ]);
+        return view('notes/details')->with('note',$note);
+
     }
 }
